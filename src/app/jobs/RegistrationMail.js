@@ -3,6 +3,9 @@ import Mail from '../lib/Mail'
 export default {
     //key == nome do job
     key: 'RegistrationMail',
+    options: {
+        
+    },
     //handle == função do job
     async handle({data}) {
         const {user} = data

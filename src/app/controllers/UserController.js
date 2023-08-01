@@ -1,5 +1,6 @@
 import Mail from "../lib/Mail.js"
 import mailQueue from "../lib/Queue.js"
+import Queue from "../lib/Queue.js"
 
 export default {
     async store(req, res) {
@@ -11,7 +12,8 @@ export default {
             password
         }
 
-        mailQueue.add({user})
+        await Queue.add("RegistrationMail", {user})
+        await Queue.add("PrintData", {user})
 
         return res.json(user)
     }
